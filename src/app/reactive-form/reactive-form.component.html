@@ -1,8 +1,18 @@
 <div class="container">
   <h2>Applay For Your Dream Job</h2>
-  <form [formGroup]="jobForm" (onSubmit)="onSubmit()">
+
+  <form (submit)="submit()">
+    <input [value]="username()" (input)="updateUsername($event)" />
+    @if (errors()['username']) {
+      <div>{{ errors()['username'] }}</div>
+    }
+    <button type="submit" [disabled]="isSubmitting()">Submit</button>
+  </form>
+  <div>{{ data() }}</div>
+
+  <!-- <form [formGroup]="jobForm" (onSubmit)="onSubmit()"> -->
     <!-- Full Name -->
-    <div class="form-group">
+    <!-- <div class="form-group">
       <label for="fullName">Full Name:</label>
       <input type="text" id="fullName" formControlName="fullName" class="form-control" />
       @if (f['fullName'].touched && f['fullName'].invalid) {
@@ -15,9 +25,9 @@
           }
         </div>
       }
-    </div>
+    </div> -->
     <!-- Email -->
-    <div class="form-group">
+    <!-- <div class="form-group">
       <label for="email">Email:</label>
       <input type="email" id="email" formControlName="email" class="form-control" />
       @if (f['email'].touched && f['email'].invalid) {
@@ -30,9 +40,9 @@
           }
         </div>
       }
-    </div>
+    </div> -->
     <!-- Experience -->
-    <div class="form-group">
+    <!-- <div class="form-group">
       <label for="experience">Years of Experience:</label>
       <input type="number" id="experience" formControlName="experience" class="form-control" />
       @if (f['experience'].touched && f['experience'].invalid) {
@@ -42,9 +52,9 @@
           }
         </div>
       }
-    </div>
+    </div> -->
     <!-- Skills -->
-    <div class="form-group">
+    <!-- <div class="form-group">
       <label>Skills:</label>
       <div formGroupName="skills">
         <label>
@@ -57,9 +67,9 @@
           <input type="checkbox" formControlName="javascript" /> Javascript
         </label>
       </div>
-    </div>
+    </div> -->
     <!-- Submit Button -->
-    <button type="submit" [disabled]="jobForm.invalid">Submit Application</button>
-  </form>
+    <!-- <button type="submit" [disabled]="jobForm.invalid">Submit Application</button>
+  </form> -->
   <!-- Display Submitted Data -->
 </div>
